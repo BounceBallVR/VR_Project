@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b31f3164a0646cf43bdfc2ff6146f8d6
+guid: 20f6539be719f15469a2a3fbf77939b5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - PC_Rhand: {instanceID: 0}
-  - A: {fileID: 8716553225874470714, guid: 65643a0fcd467ef4db61a6ab659e0b82, type: 3}
+  - bullet_r: {fileID: 8716553225874470714, guid: 65643a0fcd467ef4db61a6ab659e0b82, type: 3}
+  - PC_r: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
