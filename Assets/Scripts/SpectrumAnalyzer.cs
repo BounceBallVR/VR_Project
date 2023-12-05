@@ -10,21 +10,45 @@ public class SpectrumAnalyzer : MonoBehaviour
 {
     public AnalyzerSettings settings; //All of our settings
 
+    public bool dirr = false;
     //private
     private float[] spectrum; //Audio Source data
     private List<GameObject> pillars; //ref pillars to scale/move with music
     private GameObject folder;
     private bool isBuilding; //Prevents multi-calls and update while building.
+    public int range = 100;
 
-    Color[] colors = { new Color(255, 0, 0, 1), new Color(255, 85, 0, 1), new Color(255, 170, 0, 1), new Color(255, 255, 0, 1), new Color(170, 255, 0, 1) };
+    Color[]  forest, winter;
+
+    Color[] rainbow = { new Color(255, 0, 0), new Color(255, 51, 0), new Color(255, 102, 0), new Color(255, 153, 0), new Color(255, 204, 0), new Color(255, 255, 0),
+                                      new Color(204, 255, 0), new Color(153, 255, 0), new Color(102, 255, 0), new Color(51, 255, 0), new Color(0, 255, 0),
+                                      new Color(0, 255, 51), new Color(0, 255, 102), new Color(0, 255, 153), new Color(0, 255, 204), new Color(0, 255, 255),
+                                      new Color(0, 204, 255), new Color(0, 153, 255), new Color(0, 102, 255), new Color(0, 51, 255), new Color(0, 0, 255),
+                                      new Color(51, 0, 255), new Color(102, 0, 255), new Color(153, 0, 255), new Color(204, 0, 255), new Color(255, 0, 255),
+                                      new Color(255, 0, 204), new Color(255, 0, 153), new Color(255, 0, 102), new Color(255, 0, 51)};
+
+    public int Col = 1;
 
     void Start()
     {
         isBuilding = true;
-        CreatePillarsByShapes();
+        switch (Col)
+        {
+            case 1:
+                CreatePillarsByShapes(rainbow);
+                break;
+            case 2:
+                CreatePillarsByShapes(forest);
+                break;
+            case 3:
+                CreatePillarsByShapes(winter);
+                break;
+            default:
+                break;
+        }
     }
 
-    private void CreatePillarsByShapes()
+    private void CreatePillarsByShapes(Color[] color)
     {
         //get current pillar types
         GameObject currentPrefabType = settings.pillar.type == PillarTypes.Cylinder ? settings.Prefabs.CylPrefab : settings.Prefabs.BoxPrefab;
@@ -36,13 +60,40 @@ public class SpectrumAnalyzer : MonoBehaviour
         folder = new GameObject("Pillars-" + pillars.Count);
         folder.transform.SetParent(transform);
 
+        /*
         foreach (var piller in pillars)
         {
             piller.transform.SetParent(folder.transform);
             piller.GetComponent<MeshRenderer>().material.color = new Color(0, 255, 85);
         }
+        */
+
+        for (int i = 0; i < pillars.Count; i++)
+        {
+            GameObject piller = pillars[i];
+            piller.transform.SetParent(folder.transform);
+            piller.transform.name = "piller" + i;
+            Color myCol = color[i % color.Length];
+            piller.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(myCol.r/255, myCol.g/255, myCol.b/255));
+        }
+
+        if (dirr)
+        {
+            for (int i = 0; i < pillars.Count/2; i++)
+            {
+                Vector3 poz = transform.GetChild(0).GetChild(i).transform.position;
+                transform.GetChild(0).GetChild(i).transform.position = transform.GetChild(0).GetChild(pillars.Count - i - 1).transform.position;
+                transform.GetChild(0).GetChild(pillars.Count - i - 1).transform.position = poz;
+            }
+        }
+
 
         isBuilding = false;
+
+        if (dirr)
+            this.gameObject.transform.localEulerAngles = new Vector3(0, range, 0);
+        else
+            this.gameObject.transform.localEulerAngles = new Vector3(0, -range, 0);
     }
 
 
@@ -82,7 +133,7 @@ public class SpectrumAnalyzer : MonoBehaviour
         isBuilding = true;
         pillars.Clear();
         DestroyImmediate(folder);
-        CreatePillarsByShapes();
+        CreatePillarsByShapes(rainbow);
     }
 
     /// <summary>
