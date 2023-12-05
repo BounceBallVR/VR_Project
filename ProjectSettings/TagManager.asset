@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - asd
+  - fool
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -11,6 +15,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Post Processing
   - 
   - 
   - 
@@ -25,7 +30,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Wall
   - 
   - 
   - 
