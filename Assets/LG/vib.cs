@@ -21,7 +21,7 @@ public class vib : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            speed = collision.gameObject.GetComponent<Ball>().timmer;
+            speed = collision.gameObject.GetComponent<ball>().timmer;
             Debug.Log("speed: " + speed);
             if(speed <= 1.2f)
             {
