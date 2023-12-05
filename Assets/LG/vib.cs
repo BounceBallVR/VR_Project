@@ -21,7 +21,7 @@ public class vib : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            speed = collision.gameObject.GetComponent<bullet1>().timmer;
+            speed = collision.gameObject.GetComponent<ball>().timmer;
             Debug.Log("speed: " + speed);
             if(speed <= 1.2f)
             {
@@ -35,7 +35,7 @@ public class vib : MonoBehaviour
             //if (otherRigidbody != null)
             //{
             //    Vector3 velocity = otherRigidbody.velocity;
-            //    Debug.Log("�ӵ�" + velocity);
+            //    Debug.Log("¼Óµµ" + velocity);
             //}
         }
     }
