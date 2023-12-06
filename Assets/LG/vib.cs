@@ -35,7 +35,7 @@ public class vib : MonoBehaviour
             //if (otherRigidbody != null)
             //{
             //    Vector3 velocity = otherRigidbody.velocity;
-            //    Debug.Log("¼Óµµ" + velocity);
+            //    Debug.Log("�ӵ�" + velocity);
             //}
         }
     }
