@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5878973112286680350}
   - component: {fileID: 7220419768999605711}
   - component: {fileID: 2841624860226046039}
+  - component: {fileID: 7295308075533818789}
   m_Layer: 0
   m_Name: Audio Analyzer
   m_TagString: Untagged
@@ -144,10 +145,10 @@ MonoBehaviour:
   settings:
     pillar:
       type: 1
-      shape: 0
-      radius: 20
-      amount: 64
-      sensitivity: 40
+      shape: 2
+      radius: 18
+      amount: 80
+      sensitivity: 30
       speed: 5
     spectrum:
       FffWindowType: 5
@@ -155,3 +156,18 @@ MonoBehaviour:
     Prefabs:
       CylPrefab: {fileID: 101714, guid: d325793daac92e14b9e5048660519914, type: 3}
       BoxPrefab: {fileID: 162950, guid: 3ec3401a53b33b8469bde4c1dd203fc8, type: 3}
+  dirr: 0
+  range: 100
+  Col: 1
+--- !u!114 &7295308075533818789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181229607445808474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb2ee3419b90ef4a8b4136502296655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
