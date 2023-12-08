@@ -8,6 +8,7 @@ TagManager:
   - asd
   - fool
   - Ball
+  - Racket
   layers:
   - Default
   - TransparentFX
@@ -27,11 +28,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - LeftNote
+  - RightNote
+  - BombNote
   - Wall
-  - 
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3357654589
     locked: 0
