@@ -8,7 +8,7 @@ public class player_move : MonoBehaviour
     float H;
     float V;
     Vector3 myCevtor = Vector3.zero;
-    float speed = 3.0f;
+    //float speed = 3.0f;
 
     
     // Start is called before the first frame update

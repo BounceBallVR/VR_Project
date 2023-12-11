@@ -3,14 +3,14 @@ using System.Collections;
 
 public class MusicToAS : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource audio_;
     string preMusic;
     string nowMusic;
 
     private void Awake()
     {
         preMusic = "";
-        audio = GetComponent<AudioSource>();
+        audio_ = GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("Music"))
             nowMusic = "Alone";
         else
@@ -24,8 +24,8 @@ public class MusicToAS : MonoBehaviour
         {
             preMusic = nowMusic;
             string temp = "Music/" + nowMusic;
-            audio.clip = Resources.Load(temp) as AudioClip;
-            audio.Play();
+            audio_.clip = Resources.Load(temp) as AudioClip;
+            audio_.Play();
             Debug.Log(temp);
         }
     }
