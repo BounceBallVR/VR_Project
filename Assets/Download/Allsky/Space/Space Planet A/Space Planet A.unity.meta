@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Download/Allsky/Space/Space Planet A/Space Planet A.unity.meta
 guid: 9ae9e0fe8d6864e9c94ffd50b0d1f02d
+========
+guid: b47502002a386834a87663b703c208f5
+>>>>>>>> JHJ:Assets/Scenes/SampleScene.unity.private.0.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

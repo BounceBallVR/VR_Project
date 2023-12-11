@@ -11,15 +11,21 @@ public class SpectrumAnalyzer : MonoBehaviour
     public AnalyzerSettings settings; //All of our settings
 
     public bool dirr = false;
+<<<<<<<< HEAD:Assets/Scripts/System/SpectrumAnalyzer.cs
     public float depth = 0;
+========
+>>>>>>>> JHJ:Assets/Scripts/SpectrumAnalyzer.cs
     //private
     private float[] spectrum; //Audio Source data
     private List<GameObject> pillars; //ref pillars to scale/move with music
     private GameObject folder;
     private bool isBuilding; //Prevents multi-calls and update while building.
+<<<<<<<< HEAD:Assets/Scripts/System/SpectrumAnalyzer.cs
     public int range = 100;
 
     Color[]  forest, winter;
+========
+>>>>>>>> JHJ:Assets/Scripts/SpectrumAnalyzer.cs
 
     Color[] rainbow = { new Color(255, 0, 0), new Color(255, 51, 0), new Color(255, 102, 0), new Color(255, 153, 0), new Color(255, 204, 0), new Color(255, 255, 0),
                                       new Color(204, 255, 0), new Color(153, 255, 0), new Color(102, 255, 0), new Color(51, 255, 0), new Color(0, 255, 0),
@@ -28,6 +34,7 @@ public class SpectrumAnalyzer : MonoBehaviour
                                       new Color(51, 0, 255), new Color(102, 0, 255), new Color(153, 0, 255), new Color(204, 0, 255), new Color(255, 0, 255),
                                       new Color(255, 0, 204), new Color(255, 0, 153), new Color(255, 0, 102), new Color(255, 0, 51)};
 
+<<<<<<<< HEAD:Assets/Scripts/System/SpectrumAnalyzer.cs
     public int Col = 1;
 
     void Start()
@@ -47,6 +54,12 @@ public class SpectrumAnalyzer : MonoBehaviour
             default:
                 break;
         }
+========
+    void Start()
+    {
+        isBuilding = true;
+        CreatePillarsByShapes(rainbow);
+>>>>>>>> JHJ:Assets/Scripts/SpectrumAnalyzer.cs
     }
 
     private void CreatePillarsByShapes(Color[] color)
@@ -74,9 +87,14 @@ public class SpectrumAnalyzer : MonoBehaviour
             GameObject piller = pillars[i];
             piller.transform.SetParent(folder.transform);
             piller.transform.name = "piller" + i;
+<<<<<<<< HEAD:Assets/Scripts/System/SpectrumAnalyzer.cs
             //piller.transform.position = new Vector3(0, depth, 0);
             Color myCol = color[i % color.Length];
             piller.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(myCol.r/255, myCol.g/255, myCol.b/255));
+========
+            Color myCol = color[i % color.Length];
+            piller.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(myCol.r / 255f, myCol.g / 255f, myCol.b / 255f));
+>>>>>>>> JHJ:Assets/Scripts/SpectrumAnalyzer.cs
         }
 
         if (dirr)
@@ -93,9 +111,15 @@ public class SpectrumAnalyzer : MonoBehaviour
         isBuilding = false;
 
         if (dirr)
+<<<<<<<< HEAD:Assets/Scripts/System/SpectrumAnalyzer.cs
             this.gameObject.transform.localEulerAngles = new Vector3(0, range, 0);
         else
             this.gameObject.transform.localEulerAngles = new Vector3(0, -range, 0);
+========
+            this.gameObject.transform.localEulerAngles = new Vector3(0, 100, 0);
+        else
+            this.gameObject.transform.localEulerAngles = new Vector3(0, -100, 0);
+>>>>>>>> JHJ:Assets/Scripts/SpectrumAnalyzer.cs
     }
 
 

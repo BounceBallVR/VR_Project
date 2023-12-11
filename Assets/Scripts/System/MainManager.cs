@@ -29,6 +29,7 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         instance = this;
         MainOpen();
 

@@ -6,6 +6,7 @@ using System.Collections;
 public class VideoToPlayer : MonoBehaviour
 {
     public GameObject endPanel;
+    public GameObject lazer;
 
     VideoPlayer video;
     string preMusic;
@@ -17,7 +18,7 @@ public class VideoToPlayer : MonoBehaviour
 
     private void Awake()
     {
-        
+        lazer.SetActive(false);
         preMusic = "";
         video = GetComponent<VideoPlayer>();
         if (!PlayerPrefs.HasKey("Music"))
@@ -50,11 +51,17 @@ public class VideoToPlayer : MonoBehaviour
         timmer += Time.deltaTime;
 
         if (timmer >= endTime)
+        {
             endPanel.SetActive(true);
+            lazer.SetActive(true);
+            Time.timeScale = 0;
+        }
+
     }
 
     public void BackMain()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainRoom");
     }
 }

@@ -20,16 +20,16 @@ public class NewBehaviourScript : MonoBehaviour
         switch (hand)
         {
             case Hand.Left:
-                transform.position = ARAVRInput.LHandPosition;
-                transform.rotation=ARAVRInput.LHand.rotation*Quaternion.Euler(60,0,0);
                 transform.parent = ARAVRInput.LHand;
+                transform.rotation=ARAVRInput.LHand.rotation*Quaternion.Euler(60,0,0);
                 gameObject.layer = LayerMask.NameToLayer("LeftNote");
+                transform.position = transform.parent.transform.position;
                 break;
             case Hand.Right:
-                transform.position = ARAVRInput.RHandPosition;
-                transform.rotation=ARAVRInput.RHand.rotation * Quaternion.Euler(60, 0, 0);
                 transform.parent = ARAVRInput.RHand;
+                transform.rotation=ARAVRInput.RHand.rotation * Quaternion.Euler(60, 0, 0);
                 gameObject.layer = LayerMask.NameToLayer("RightNote");
+                transform.position = transform.parent.transform.position;
                 break;
 
         }

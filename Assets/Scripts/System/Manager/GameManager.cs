@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     float bestScore;
     private void Awake()
     {
+        Time.timeScale = 1f;
         instanse = this;
         bestScore = (float)PlayerPrefs.GetInt(PlayerPrefs.GetString("Music"));
         bsTxt.text = "BEST\nSCORE\n" + bestScore;
@@ -32,8 +33,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = "SCORE\n" + Score;
+        scoreTxt.text = "SCORE\n" + Score*15;
         if (Score > bestScore)
-            PlayerPrefs.SetInt(PlayerPrefs.GetString("Music"), (int)Score);
+        {
+            bsTxt.text = "BEST\nSCORE\n" + Score * 15;
+            PlayerPrefs.SetInt(PlayerPrefs.GetString("Music"), (int)Score * 15);
+        }
+
     }
 }
