@@ -8,6 +8,10 @@ TagManager:
   - asd
   - fool
   - Ball
+  - Racket
+  - FxTemporaire
+  - SamplesInfoPanel
+  - RoomLight
   layers:
   - Default
   - TransparentFX
@@ -28,10 +32,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Note
+  - BombNote
   - Wall
-  - 
   - 
   - 
   - 
@@ -45,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3357654589
     locked: 0
